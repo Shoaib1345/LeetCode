@@ -14,8 +14,8 @@ class Solution:
                 freq[ord(ch) - ord("a")] -= 1
             return all(x == 0 for x in freq)
 
-        for i in range(1, n):
-            if compare(words[i], words[i - 1]):
+        for w in range(1, n):
+            if compare(words[w], words[w - 1]):
                 continue
-            res.append(words[i])
+            res.append(words[w])
         return res
