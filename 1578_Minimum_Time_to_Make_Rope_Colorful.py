@@ -1,0 +1,12 @@
+class Solution:
+    def minCost(self, colors: str, neededTime: list[int]) -> int:
+        total_time = 0
+
+        for i in range(1, len(colors)):
+            if colors[i] == colors[i - 1]:
+                # Remove the one with smaller time
+                total_time += min(neededTime[i], neededTime[i - 1])
+                # Keep the maximum time for next comparison
+                neededTime[i] = max(neededTime[i], neededTime[i - 1])
+
+        return total_time
